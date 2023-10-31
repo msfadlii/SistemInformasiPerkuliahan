@@ -4,17 +4,17 @@ import java.time.LocalDate;
 
 public class NodePembayaranHer {
     LocalDate tgl;
-    NodeKasir kasir;    //ambil nama
-    String npm; 
+    String npm, kasir; 
     NodeMahasiswa mhs;//ambil npm
     
-    public NodePembayaranHer(LocalDate tgl, String npm){
+    public NodePembayaranHer(LocalDate tgl, String npm, String kasir){
         this.tgl = tgl;
         this.npm = npm;
+        this.kasir = kasir;
     }
     
     public void viewPembayaranHer(){
-        System.out.println("NPM Mahaiswa       : "+this.mhs.getNpm());
+        System.out.println("NPM Mahaiswa       : "+this.npm);
         System.out.println("Tanggal Pembayaran : "+this.tgl);
         System.out.println("Kasir              : "+this.kasir);
     }

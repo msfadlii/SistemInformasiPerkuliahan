@@ -13,18 +13,14 @@ public class ModelPembayaranHer {
         this.arrPembHer = new ArrayList<>();
     }
     
-    public void insertPembayaran(){
+    public void insertPembayaran(String npm, String namaKasir){
         LocalDate tgl = LocalDate.now();
-        this.arrPembHer.add(new NodePembayaranHer(tgl, mhs.getNpm()));
+        this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir));
     }
     
-    public void updatePembayaran(){
-        
-    }
-    
-    public void deletePembayaran(NodeMahasiswa mhs){
+    public void deletePembayaran(String npm){
         for (int i = 0; i < arrPembHer.size(); i++) {
-            if(mhs.getNpm().equals(arrPembHer.get(i).getMhs())){
+            if(npm.equals(arrPembHer.get(i).getMhs())){
                 arrPembHer.remove(i);
             }
         }
