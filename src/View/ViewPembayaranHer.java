@@ -1,7 +1,8 @@
 package View;
 
 import Model.ModelPembayaranHer;
-import java.time.LocalDate;
+import View.Menu.MainMenu;
+
 import java.util.Scanner;
 
 public class ViewPembayaranHer {
@@ -14,7 +15,7 @@ public class ViewPembayaranHer {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int pilih_menu, iKasir;
-        String iNpm, namaKasir="";
+        String iNpm, namaKasir="", iStatusPem;
         loops: while(true){
             menuPembHer();
             System.out.print("Masukkan menu yang ingin dipilih : ");
@@ -36,7 +37,9 @@ public class ViewPembayaranHer {
                             namaKasir = "Bu Kasir";
                             break;
                     }
-                    mPembHer.insertPembayaran(iNpm, namaKasir);
+                    System.out.print("Pembayaran Her (Sudah/Belum) : ");
+                    iStatusPem = input.nextLine();
+                    mPembHer.insertPembayaran(iNpm, namaKasir, iStatusPem);
                     continue loops;
                 case 2:
                     System.out.println("--- Hapus Pembayaran ---");

@@ -1,7 +1,8 @@
 package View;
 
 import Model.ModelMahasiswa;
-import Model.ModelWaliMhs;
+import View.Menu.MainMenu;
+
 import java.util.Scanner;
 
 public class ViewMahasiswa {

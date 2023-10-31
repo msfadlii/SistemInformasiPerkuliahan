@@ -1,8 +1,11 @@
 package View;
 
 import Model.ModelMahasiswa;
+import Model.ModelPembayaranHer;
 import Model.ModelPendaftaran;
 import Model.ModelWaliMhs;
+import auth.MenuLogin;
+
 import java.util.Scanner;
 
 public class ViewPendaftaran {
@@ -10,9 +13,11 @@ public class ViewPendaftaran {
     static ModelPendaftaran mPendaftaran = new ModelPendaftaran();
     static ModelMahasiswa mMahasiswa = new ModelMahasiswa();
     static ModelWaliMhs mWaliMhs = new ModelWaliMhs();
+    static ModelPembayaranHer mPembHer = new ModelPembayaranHer();
+    static String iNpm;
     
     public void inputMahasiswaP(){
-        String iNpm, iNama, iJurusan, iTelp;
+        String iNama, iJurusan, iTelp;
         System.out.println("--- Pendaftaran Mahasiswa ---");
         System.out.print("Masukkan NPM Mahasiswa : ");
         iNpm = input.nextLine();
@@ -31,12 +36,18 @@ public class ViewPendaftaran {
         iNama = input.nextLine();
         System.out.print("Masukkan Nomor Telp : ");
         iTelp = input.nextLine();
-        mWaliMhs.insertWaliMhs(, iNama, iTelp);
+        mWaliMhs.insertWaliMhs(iNpm, iNama, iTelp);
     }
-    
+
     public static void main(String[] args) {
-        
-        
-        
+        ViewPendaftaran daftar = new ViewPendaftaran();
+        daftar.inputMahasiswaP();
+        daftar.inputWaliMhsP();
+        boolean cek = mPembHer.searchPembayaran(iNpm);
+        if(cek){
+            MenuLogin.main(null);
+        } else {
+            System.out.println("Selesaikan Pembayaran Her melalui kasir terlebih dahulu!");
+        }
     }
 }

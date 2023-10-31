@@ -13,9 +13,14 @@ public class ModelPembayaranHer {
         this.arrPembHer = new ArrayList<>();
     }
     
-    public void insertPembayaran(String npm, String namaKasir){
-        LocalDate tgl = LocalDate.now();
-        this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir));
+    public void insertPembayaran(String npm, String namaKasir, String status){
+        if(status.equals("Belum")){
+            LocalDate tgl = LocalDate.parse("-");
+            this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir, status));
+        } else {
+            LocalDate tgl = LocalDate.now();
+            this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir, status));
+        }
     }
     
     public void deletePembayaran(String npm){
@@ -31,5 +36,17 @@ public class ModelPembayaranHer {
             arrPembHer.get(i).viewPembayaranHer();
             System.out.println("---------------------");
         }
+    }
+    
+    public boolean searchPembayaran(String npm){
+        for (int i = 0; i < arrPembHer.size(); i++) {
+            if(npm.equals(arrPembHer.get(i).getNpm())){
+                if(arrPembHer.get(i).getStatus().equals("Sudah")){
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
     }
 }

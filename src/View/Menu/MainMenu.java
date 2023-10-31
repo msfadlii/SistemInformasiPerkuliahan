@@ -1,4 +1,8 @@
-package View;
+package View.Menu;
+
+import View.ViewDosenWali;
+import View.ViewJurusan;
+import View.ViewMahasiswa;
 
 import java.util.Scanner;
 

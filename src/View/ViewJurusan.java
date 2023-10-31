@@ -1,6 +1,8 @@
 package View;
 
 import Model.ModelJurusan;
+import View.Menu.MainMenu;
+
 import java.util.Scanner;
 
 public class ViewJurusan {
