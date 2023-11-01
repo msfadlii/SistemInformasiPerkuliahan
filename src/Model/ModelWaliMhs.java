@@ -1,61 +1,64 @@
 package Model;
 
+import Node.NodeMahasiswa;
 import Node.NodeWaliMhs;
+import View.Menu.MainClass;
 import java.util.ArrayList;
+import java.lang.reflect.*;
 
 public class ModelWaliMhs {
-    ArrayList<NodeWaliMhs> arrWMhs;
-    
+    NodeWaliMhs nWaliMhs = new NodeWaliMhs();
     public ModelWaliMhs(){
-        arrWMhs = new ArrayList<>();
+        
     }
     
-    public void insertWaliMhs(String npm, String nama, String no_telp){
-        this.arrWMhs.add(new NodeWaliMhs(npm, nama, no_telp));
+    public NodeWaliMhs insertWaliMhs(String nama, String no_telp){
+        this.nWaliMhs.arrWMhs.add(new NodeWaliMhs(nama, no_telp));
+        
+        return this.nWaliMhs;
     }
     
     public void updateWaliMhs(String npm, String new_nama, String no_telp){
-        for (int i = 0; i < arrWMhs.size(); i++) {
-            if(npm.equals(arrWMhs.get(i).getNpm())){
+        for (int i = 0; i < nWaliMhs.arrWMhs.size(); i++) {
+            if(npm.equals(nWaliMhs.arrWMhs.get(i).getNpm())){
                 if(new_nama.equals("-")){
-                    arrWMhs.get(i).setNo_telp(no_telp);
+                    nWaliMhs.arrWMhs.get(i).setNo_telp(no_telp);
                 } else {
-                    arrWMhs.get(i).setNama(new_nama);
-                    arrWMhs.get(i).setNo_telp(no_telp);
+                    nWaliMhs.arrWMhs.get(i).setNama(new_nama);
+                    nWaliMhs.arrWMhs.get(i).setNo_telp(no_telp);
                 }
             }
         }
     }
     
     public void deleteWali(String npm){
-        for (int i = 0; i < arrWMhs.size(); i++) {
-            if(npm.equals(arrWMhs.get(i).getNpm())){
-                arrWMhs.remove(i);
+        for (int i = 0; i < nWaliMhs.arrWMhs.size(); i++) {
+            if(npm.equals(nWaliMhs.arrWMhs.get(i).getNpm())){
+                nWaliMhs.arrWMhs.remove(i);
             }
         }
     }
     
     public void viewAllWaliMhs(){
-        for (int i = 0; i < arrWMhs.size(); i++) {
-            arrWMhs.get(i).viewWaliMhs();
+        for (int i = 0; i < nWaliMhs.arrWMhs.size(); i++) {
+            nWaliMhs.arrWMhs.get(i).viewWaliMhs();
             System.out.println("---------");
         }
     }
     
-    public String getNamaWali(String npm){
-        String nama="";
-        for (int i = 0; i < arrWMhs.size(); i++) {
-            if(npm.equals(arrWMhs.get(i).getNpm()))
-                nama = arrWMhs.get(i).getNama();
+    public void getWali(String npm){
+        for (int i = 0; i < nWaliMhs.arrWMhs.size(); i++) {
+            if(npm.equals(MainClass.mMhs.nMhs.arrMahasiswa.get(i).getNpm()))
+                System.out.println("Nama Wali : "+nWaliMhs.arrWMhs.get(i).getNama());
+                System.out.println("No Telp   : "+nWaliMhs.arrWMhs.get(i).getNo_telp());
         }
-        return nama;
     }
     
     public String getTelpWali(String npm){
         String telp="";
-        for (int i = 0; i < arrWMhs.size(); i++) {
-            if(npm.equals(arrWMhs.get(i).getNpm()))
-                telp = arrWMhs.get(i).getNo_telp();
+        for (int i = 0; i < nWaliMhs.arrWMhs.size(); i++) {
+            if(npm.equals(nWaliMhs.arrWMhs.get(i).getNpm()))
+                telp = nWaliMhs.arrWMhs.get(i).getNo_telp();
         }
         return telp;
     }

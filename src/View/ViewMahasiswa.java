@@ -1,12 +1,14 @@
 package View;
 
 import Model.ModelMahasiswa;
+import Node.NodeJurusan;
+import Node.NodeWaliMhs;
+import View.Menu.MainClass;
 import View.Menu.MainMenu;
 
 import java.util.Scanner;
 
 public class ViewMahasiswa {
-    static ModelMahasiswa mMahasiswa = new ModelMahasiswa();
     static ViewWaliMhs vWaliMhs = new ViewWaliMhs();
     public static void menuMahasiswa(){
         System.out.println("\n--- Menu Mahasiswa ---");
@@ -17,7 +19,7 @@ public class ViewMahasiswa {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int pilih_menu;
-        String iNpm, iNama, iJurusan, iTelp;
+        String iNpm, iNama, iJurusan, iTelp, wNama, wTelp;
         loops: while(true){
             menuMahasiswa();
             System.out.print("Masukkan menu yang ingin dipilih : ");
@@ -34,8 +36,17 @@ public class ViewMahasiswa {
                     iJurusan = input.nextLine();
                     System.out.print("Masukkan Nomor Telp      : ");
                     iTelp = input.nextLine();
-                    vWaliMhs.inputWaliMhs(iNpm);
-                    mMahasiswa.insertMahasiswa(iNpm, iNama, iJurusan, iTelp);
+                    System.out.println("--- Tambah Wali Mahasiswa ---");
+                    System.out.print("Masukkan Nama Wali Mahasiswa  : ");
+                    wNama = input.nextLine();
+                    System.out.print("Masukkan Nomor Telp           : ");
+                    wTelp = input.nextLine();
+//                    vWaliMhs.inputWaliMhs(iNpm);
+                    NodeJurusan nJur = null;
+                    nJur = MainClass.mJurusan.searchJurusan(iJurusan);
+//                    MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp);
+                    MainClass.mMhs.nMhs.setWaliMhs(MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp));
+                    MainClass.mMhs.insertMahasiswa(iNpm, iNama, nJur, iTelp, MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp));
                     continue loops;
                 case 2:
                     System.out.println("--- Update Mahasiswa ---");
@@ -47,16 +58,17 @@ public class ViewMahasiswa {
                     iJurusan = input.nextLine();
                     System.out.print("Masukkan Nomor Telp     : ");
                     iTelp = input.nextLine();
-                    mMahasiswa.updateMahasiswa(iNpm, iNama, iJurusan, iTelp);
+                    
+                    MainClass.mMhs.updateMahasiswa(iNpm, iNama, iJurusan, iTelp);
                     continue loops;
                 case 3:
                     System.out.println("--- Hapus Mahasiswa ---");
                     System.out.print("Masukkan NPM Mahasiswa : ");
                     iNpm = input.nextLine();
-                    mMahasiswa.deleteMahasiswa(iNpm);
+                    MainClass.mMhs.deleteMahasiswa(iNpm);
                     continue loops;
                 case 4:
-                    mMahasiswa.viewAllMahasiswa();
+                    MainClass.mMhs.viewAllMahasiswa();
                     continue loops;
 //                case 5:
 //                    System.out.println("--- Update Wali Mahasiswa ---");

@@ -8,6 +8,13 @@ public class ModelJurusan {
 
     public ModelJurusan() {
         this.jurusans = new ArrayList<>();
+        initJurusan();
+    }
+    
+    public void initJurusan(){
+        int index = jurusans.size();
+        this.jurusans.add(new NodeJurusan(1, "Teknik Informatika", "FTETI"));
+        this.jurusans.add(new NodeJurusan(2, "Sistem Informasi", "FTETI"));
     }
     
     public void insertJurusan(String nama, String fakultas){
@@ -36,5 +43,15 @@ public class ModelJurusan {
                 jurusans.remove(i);
             }
         }
+    }
+    
+    public NodeJurusan searchJurusan(String nama_jurusan){
+        NodeJurusan jurusan = null;
+        for (int i = 0; i < jurusans.size(); i++) {
+            if(nama_jurusan.equals(jurusans.get(i).getNama_jurusan())){
+                jurusan = jurusans.get(i);
+            }
+        }
+        return jurusan;
     }
 }

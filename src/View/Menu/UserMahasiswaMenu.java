@@ -1,51 +1,40 @@
 package View.Menu;
 
+import Model.ModelMahasiswa;
+import Model.ModelWaliMhs;
+import Node.NodeMahasiswa;
+import View.ViewDosenWali;
+import View.ViewPendaftaran;
+import auth.MenuLogin;
 import java.util.Scanner;
 
 public class UserMahasiswaMenu {
     public static void menu(){
         System.out.println("--- Selamat Datang di Kampus ITATS ---");
-        System.out.println("1. Lihat Data Mahasiswa\n2. Lihat Data Wali\n3. Lihat Data Dosen Wali");
+        System.out.println("1. Lihat Data Mahasiswa\n2. Lihat Data Wali\n3. Lihat Data Dosen Wali\n4. Logout");
     }
-    public static void main(String[] args) {
-        menu();
+    
+    public static void main(String args) {
         Scanner input = new Scanner(System.in);
         int pilih_menu;
-        String iNama, iFakultas;
         loops: while(true){
-            menuJurusan();
+            menu();
             System.out.print("Masukkan menu yang ingin dipilih : ");
             pilih_menu = input.nextInt();
             input.nextLine();
             switch(pilih_menu){
                 case 1:
-                    System.out.println("--- Tambah Jurusan ---");
-                    System.out.print("Masukkan Nama Jurusan : ");
-                    iNama = input.nextLine();
-                    System.out.print("Masukkan Nama Fakultas : ");
-                    iFakultas = input.nextLine();
-                    mJurusan.insertJurusan(iNama, iFakultas);
+                    MainClass.mMhs.searchMahasiswa(args);
                     continue loops;
                 case 2:
-                    System.out.println("--- Update Jurusan ---");
-                    System.out.print("Masukkan Nama Jurusan : ");
-                    iNama = input.nextLine();
-                    System.out.print("Masukkan Nama Fakultas : ");
-                    iFakultas = input.nextLine();
-                    mJurusan.updateJurusan(iNama, iFakultas);
+                    MainClass.mWaliMhs.getWali(args);
                     continue loops;
                 case 3:
-                    System.out.println("--- Hapus Jurusan ---");
-                    System.out.print("Masukkan Nama Jurusan : ");
-                    iNama = input.nextLine();
-                    mJurusan.deleteJurusan(iNama);
+//                    MainClass.mMhs.viewDosWalForMhs(args);
                     continue loops;
                 case 4:
-                    mJurusan.viewAllJurusan();
+                    MenuLogin.main(null);
                     continue loops;
-                case 5:
-                    MainMenu.main(null);
-                    break;
                 default:
                     System.out.println("Input tidak valid (Input 1-4) !");
                     break;

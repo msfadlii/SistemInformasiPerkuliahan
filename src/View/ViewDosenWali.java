@@ -6,17 +6,17 @@ import View.Menu.MainMenu;
 import java.util.Scanner;
 
 public class ViewDosenWali {
-    static ModelDosenWali mDosWal = new ModelDosenWali();
+    public static ModelDosenWali mDosWal = new ModelDosenWali();
     public static void menuJurusan(){
         System.out.println("\n--- Menu Dosen Wali ---");
-        System.out.println("1. Tambah Dosen Wali\n2. Update Dosen Wali\n3. Hapus Dosen Wali\n4. Tampilkan Semua Dosen Wali\n5. Kembali");
+        System.out.println("1. Tambah Dosen Wali\n2. Update Dosen Wali\n3. Hapus Dosen Wali\n4. Hubungkan Mahasiswa & Dosen WAli\n5. Tampilkan Semua Dosen Wali\n6. Kembali");
         System.out.println("---              ---");
     }
     
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int pilih_menu;
-        String iNama, iNip, iJurusan, iTelp;
+        String iNama, iNip, iJurusan, iTelp, iNpm;
         loops: while(true){
             menuJurusan();
             System.out.print("Masukkan menu yang ingin dipilih : ");
@@ -54,9 +54,17 @@ public class ViewDosenWali {
                     mDosWal.deleteDosenWali(iNip);
                     continue loops;
                 case 4:
+                    System.out.println("--- Hubungkan Mahasiswa & Dosen Wali");
+                    System.out.print("Masukkan NIP Dosen : ");
+                    iNip = input.nextLine();
+                    System.out.print("Masukkan NPM Mahasiswa : ");
+                    iNpm = input.nextLine();
+                    
+                    break;
+                case 5:
                     mDosWal.viewAllDosenWali();
                     continue loops;
-                case 5:
+                case 6:
                     MainMenu.main(null);
                     break;
                 default:

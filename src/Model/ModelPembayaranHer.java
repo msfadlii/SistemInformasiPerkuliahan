@@ -17,6 +17,7 @@ public class ModelPembayaranHer {
         if(status.equals("Belum")){
             LocalDate tgl = LocalDate.parse("-");
             this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir, status));
+            mhs.setStatusPemHer(status);
         } else {
             LocalDate tgl = LocalDate.now();
             this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir, status));
@@ -25,7 +26,7 @@ public class ModelPembayaranHer {
     
     public void deletePembayaran(String npm){
         for (int i = 0; i < arrPembHer.size(); i++) {
-            if(npm.equals(arrPembHer.get(i).getMhs())){
+            if(npm.equals(arrPembHer.get(i).getNpm())){
                 arrPembHer.remove(i);
             }
         }

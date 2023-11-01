@@ -1,15 +1,21 @@
 package Node;
 
+import java.util.ArrayList;
+
 public class NodeWaliMhs extends Manusia{
+    public ArrayList<NodeWaliMhs> arrWMhs;
     String npm;
-    public NodeWaliMhs(String npm, String nama, String no_telp) {
-        this.npm = npm;
+    public NodeWaliMhs(String nama, String no_telp) {
+//        this.mahasiswa = mahasiswa;
         this.nama = nama;
         this.no_telp = no_telp;
     }
+    public NodeWaliMhs(){
+        this.arrWMhs = new ArrayList<>();
+    }
 
     public void viewWaliMhs(){
-        System.out.println("NPM                  : "+this.npm);
+//        System.out.println("NPM                  : "+this.mahasiswa.getNpm());
         System.out.println("Nama Wali Mahasiswa  : "+this.nama);
         System.out.println("No Telepon           : "+this.no_telp);
     }

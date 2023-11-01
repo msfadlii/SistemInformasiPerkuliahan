@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class NodePembayaranHer {
     LocalDate tgl;
     String npm, kasir, status; 
-    NodeMahasiswa mhs;//ambil npm
+    NodeMahasiswa mhs = new NodeMahasiswa();//ambil npm
     
     public NodePembayaranHer(LocalDate tgl, String npm, String kasir, String status){
         this.tgl = tgl;
@@ -25,9 +25,13 @@ public class NodePembayaranHer {
         return npm;
     }
 
-    public String getMhs() {
-        return mhs.getNpm();
+    public void setStatus(String status) {
+        this.status = status;
     }
+
+//    public String getMhs() {
+//        return mhs.getNpm();
+//    }
 
     public String getStatus() {
         return status;

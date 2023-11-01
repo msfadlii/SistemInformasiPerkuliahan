@@ -24,11 +24,12 @@ public class ViewPembayaranHer {
             switch(pilih_menu){
                 case 1:
                     System.out.println("--- Pembayaran Her ---");
-                    System.out.println("Pilih Kasir\n1. Pak Kasir\n2. Bu Kasir");
+                    System.out.println("1. Pak Kasir\n2. Bu Kasir");
+                    System.out.print("Pilih Kasir   : ");
                     iKasir = input.nextInt();
+                    input.nextLine();
                     System.out.print("Masukkan NPM Mahasiswa : ");
                     iNpm = input.nextLine();
-                    input.nextLine();
                     switch(iKasir){
                         case 1:
                             namaKasir = "Pak Kasir";

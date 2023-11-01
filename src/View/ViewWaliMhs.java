@@ -22,7 +22,7 @@ public class ViewWaliMhs {
         iNama = input.nextLine();
         System.out.print("Masukkan Nomor Telp           : ");
         iTelp = input.nextLine();
-        mWaliMhs.insertWaliMhs(npm, iNama, iTelp);
+//        mWaliMhs.insertWaliMhs(npm, iNama, iTelp);
     }
     
     public void updateWaliMhs(String npm){
