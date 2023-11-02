@@ -18,6 +18,7 @@ public class ViewPendaftaran {
     static ModelPembayaranHer mPembHer = new ModelPembayaranHer();
     static String iNpm;
     
+    
     public void inputMahasiswaP(){
 //        String iNama, iJurusan, iTelp;
 //        System.out.println("--- Pendaftaran Mahasiswa ---");
@@ -47,6 +48,7 @@ public class ViewPendaftaran {
 
     public static void main(String[] args) {
         ViewPendaftaran daftar = new ViewPendaftaran();
+        
         String iNama, iJurusan, iTelp, wNama, wTelp;
         System.out.println("--- Pendaftaran Mahasiswa ---");
         System.out.print("Masukkan NPM Mahasiswa : ");

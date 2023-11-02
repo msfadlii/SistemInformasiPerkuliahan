@@ -10,4 +10,5 @@ public class MainClass {
     public static ModelDosenWali mDosWal = new ModelDosenWali();
     public static ModelWaliMhs mWaliMhs = new ModelWaliMhs();
     public static ModelJurusan mJurusan = new ModelJurusan();
+    
 }

@@ -42,7 +42,7 @@ public class ViewMahasiswa {
                     System.out.print("Masukkan Nomor Telp           : ");
                     wTelp = input.nextLine();
 //                    vWaliMhs.inputWaliMhs(iNpm);
-                    NodeJurusan nJur = null;
+                    NodeJurusan nJur ;
                     nJur = MainClass.mJurusan.searchJurusan(iJurusan);
 //                    MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp);
                     MainClass.mMhs.nMhs.setWaliMhs(MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp));

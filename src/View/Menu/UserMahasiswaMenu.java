@@ -30,7 +30,7 @@ public class UserMahasiswaMenu {
                     MainClass.mWaliMhs.getWali(args);
                     continue loops;
                 case 3:
-//                    MainClass.mMhs.viewDosWalForMhs(args);
+                  //MainClass.mMhs.viewDosWalForMhs(args);
                     continue loops;
                 case 4:
                     MenuLogin.main(null);

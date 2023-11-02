@@ -29,7 +29,7 @@ public class NodeMahasiswa extends Manusia{
     public void viewMahasiswa(){
         System.out.println("NPM                      : "+this.npm);
         System.out.println("Nama Mahasiswa           : "+this.nama);
-        System.out.println("Jurusan Mahasiswa        : "+this.jurusan.getNama_jurusan());
+        System.out.println("Jurusan Mahasiswa        : "+this.jurusan);
         System.out.println("Nomor Telp               : "+this.no_telp);
     }
     

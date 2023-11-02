@@ -4,6 +4,7 @@ import Node.NodeDosenWali;
 import Node.NodeJurusan;
 import Node.NodeMahasiswa;
 import Node.NodeWaliMhs;
+
 import View.ViewDosenWali;
 import View.ViewPendaftaran;
 import java.util.ArrayList;
@@ -70,6 +71,8 @@ public class ModelMahasiswa {
     public String getMhsNpm(){
         return nMhs.getNpm();
     }
+    
+   
     
 //    public void hubMhsDosWal(String nip, String npm){
 //        String nip_bener="";
