@@ -2,6 +2,8 @@ package Model;
 
 import Node.NodeMahasiswa;
 import Node.NodePembayaranHer;
+import View.Menu.MainClass;
+import View.ViewPendaftaran;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -13,15 +15,17 @@ public class ModelPembayaranHer {
         this.arrPembHer = new ArrayList<>();
     }
     
-    public void insertPembayaran(String npm, String namaKasir, String status){
-        if(status.equals("Belum")){
-            LocalDate tgl = LocalDate.parse("-");
-            this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir, status));
-            mhs.setStatusPemHer(status);
-        } else {
+    public void insertPembayaran(NodeMahasiswa npm, String namaKasir, String status){
+//        if(status.equals("Belum")){
+//            LocalDate tgl = LocalDate.parse("-");
+//            this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir, status));
+//            mhs.setStatusPemHer(status);
+//        } else {
             LocalDate tgl = LocalDate.now();
+            MainClass.mMhs.nMhs.setStatusPemHer(status);
+            ViewPendaftaran.mPendaftaran.nPendaft.setnPembHer(status);
             this.arrPembHer.add(new NodePembayaranHer(tgl, npm, namaKasir, status));
-        }
+//        }
     }
     
     public void deletePembayaran(String npm){

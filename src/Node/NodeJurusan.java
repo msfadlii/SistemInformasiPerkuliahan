@@ -24,4 +24,9 @@ public class NodeJurusan {
     public void setNama_fakultas(String nama_fakultas) {
         this.nama_fakultas = nama_fakultas;
     }
+
+    public int getKode_jurusan() {
+        return kode_jurusan;
+    }
+    
 }

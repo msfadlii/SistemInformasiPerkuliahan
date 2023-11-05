@@ -2,15 +2,17 @@ package Node;
 
 import Model.ModelMahasiswa;
 import Model.ModelWaliMhs;
+import View.Menu.MainClass;
 import View.ViewDosenWali;
+import auth.NodeUser;
 import java.util.ArrayList;
 
 public class NodeMahasiswa extends Manusia{
-    String npm, ijurusan, statusPemHer;
+    String npm, ijurusan, statusPemHer="Belum", username;
     public ArrayList<NodeMahasiswa> arrMahasiswa;
-    public ArrayList<NodeDosenWali> arrDosenWali;
     NodeJurusan jurusan = null;
     NodeWaliMhs waliMhs = null;
+    NodeDosenWali dosWal =null;
     
     public NodeMahasiswa(String npm, String nama, NodeJurusan jurusan, String no_telp, NodeWaliMhs waliMhs) {
         this.npm = npm;
@@ -19,7 +21,7 @@ public class NodeMahasiswa extends Manusia{
         this.no_telp = no_telp;
         this.statusPemHer = "Belum";
         this.waliMhs = waliMhs;
-//        this.arrDosenWali = new ArrayList<>();
+        this.username = "";
     }
     
     public NodeMahasiswa(){
@@ -36,13 +38,17 @@ public class NodeMahasiswa extends Manusia{
     public String getNpm() {
         return npm;
     }
-    
-//    public String getNipDosWal(){
-//        return this.nDosWal.getNip();
-//    }
 
     public String getNama() {
         return nama;
+    }
+
+    public String getStatusPemHer() {
+        return statusPemHer;
+    }
+
+    public NodeJurusan getJurusan() {
+        return jurusan;
     }
 
     public void setNama(String nama) {
@@ -68,11 +74,24 @@ public class NodeMahasiswa extends Manusia{
     public void setWaliMhs(NodeWaliMhs waliMhs) {
         this.waliMhs = waliMhs;
     }
-    
-//    public void setMhsDosWal(String nip, NodeDosenWali doswal){
-//        this.nDosWal = doswal;
-//    }
+
     public void setJurusan(NodeJurusan nodeJurusan){
         this.jurusan = nodeJurusan;
+    }
+
+    public void setDosWal(NodeDosenWali dosWal) {
+        this.dosWal = dosWal;
+    }
+
+    public NodeDosenWali getDosWal() {
+        return dosWal;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

@@ -11,17 +11,12 @@ import java.lang.reflect.*;
 
 public class ModelMahasiswa {
     public NodeMahasiswa nMhs = new NodeMahasiswa();
-    NodeJurusan nJurusan = null;
     
     public ModelMahasiswa(){   
     }
     
     public void insertMahasiswa(String npm, String nama, NodeJurusan jurusan, String no_telp, NodeWaliMhs waliMhs){
         this.nMhs.arrMahasiswa.add(new NodeMahasiswa(npm, nama, jurusan, no_telp, waliMhs));
-    }
-    
-    public void tambahDosenWali(NodeDosenWali dosenWali){
-        this.nMhs.arrDosenWali.add(dosenWali);
     }
     
     public void updateMahasiswa(String npm, String new_nama, String new_jurusan, String new_telp){
@@ -67,32 +62,41 @@ public class ModelMahasiswa {
         }
     }
     
-    public String getMhsNpm(){
-        return nMhs.getNpm();
+    public String viewDosWalForMhs(String npm){
+        String output="";
+        for (int i = 0; i < nMhs.arrMahasiswa.size(); i++) {
+            if(npm.equals(nMhs.arrMahasiswa.get(i).getNpm())){
+                if(nMhs.getStatusPemHer().equals("Belum")){
+                    output = "Anda Belum Membayar Her";
+                } 
+//                else if (nMhs.getStatusPemHer().equals("Sudah") && nMhs.getDosWal().getNama().equals(null)){
+//                    output = "Anda Belum Memiliki Dosen Wali";
+//                } 
+                else{
+                    output = "NIP        : "+nMhs.arrMahasiswa.get(i).getDosWal().getNip()
+                            + "\nNama Dosen : "+nMhs.arrMahasiswa.get(i).getDosWal().getNama()
+                            + "\nJurusan    : "+nMhs.arrMahasiswa.get(i).getDosWal().getJurusan();
+                }
+            }
+        }
+        return output;
     }
     
-//    public void hubMhsDosWal(String nip, String npm){
-//        String nip_bener="";
-//        for (int i = 0; i < ViewDosenWali.mDosWal.nDosenWali.arrDosenWali.size(); i++) {
-//            if(nip.equals(ViewDosenWali.mDosWal.nDosenWali.arrDosenWali.get(i).getNip())){
-//                nip_bener = nip;
-//            }
-//        }
-//        for (int i = 0; i < nMhs.arrMahasiswa.size(); i++) {
-//            if(npm.equals(nMhs.arrMahasiswa.get(i).getNpm())){
-//                nMhs.setMhsDosWal(nip_bener, ViewDosenWali.mDosWal.nDosenWali);
-//            }
-//        }
-//    }
+    public String searchUsername(String username){
+        String result="";
+        for (int i = 0; i < nMhs.arrMahasiswa.size(); i++) {
+            if(username.equals(nMhs.arrMahasiswa.get(i).getUsername())){
+                result = nMhs.arrMahasiswa.get(i).getNpm();
+            }
+        }
+        return result;
+    }
     
-//    public void viewDosWalForMhs(String npm){
-//        for (int i = 0; i < ViewDosenWali.mDosWal.nDosenWali.arrDosenWali.size(); i++) {
-//            if(nMhs.arrMahasiswa.get(i).getNipDosWal().equals(ViewDosenWali.mDosWal.nDosenWali.arrDosenWali.get(i).getNip())){
-//                System.out.println("NIP        : "+ViewDosenWali.mDosWal.nDosenWali.arrDosenWali.get(i).getNip());
-//                System.out.println("Nama Dosen : "+ViewDosenWali.mDosWal.nDosenWali.arrDosenWali.get(i).getNama());
-//                System.out.println("Jurusan    : "+ViewDosenWali.mDosWal.nDosenWali.arrDosenWali.get(i).getJurusan());
-//            }
-//        }
-//        System.out.println("Anda Belum Memiliki Dosen Wali");
-//    }
+    public void setMhsUsername(String npm, String username){
+        for (int i = 0; i < nMhs.arrMahasiswa.size(); i++) {
+            if(npm.equals(nMhs.arrMahasiswa.get(i).getNpm())){
+                nMhs.arrMahasiswa.get(i).setUsername(username);
+            }
+        }
+    }
 }

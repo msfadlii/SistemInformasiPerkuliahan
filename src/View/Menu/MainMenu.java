@@ -36,7 +36,7 @@ public class MainMenu {
                     ViewPembayaranHer.main(null);
                     break;
                 case 5:
-                    MenuLogin.main(null);
+                    MenuLogin.menu();
                     break;
                 default:
                     System.out.println("Input tidak valid (Input 1-4) !");

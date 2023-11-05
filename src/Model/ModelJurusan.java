@@ -12,9 +12,8 @@ public class ModelJurusan {
     }
     
     public void initJurusan(){
-        int index = jurusans.size();
-        this.jurusans.add(new NodeJurusan(1, "Teknik Informatika", "FTETI"));
-        this.jurusans.add(new NodeJurusan(2, "Sistem Informasi", "FTETI"));
+        this.jurusans.add(new NodeJurusan(6, "Teknik Informatika", "FTETI"));
+        this.jurusans.add(new NodeJurusan(13, "Sistem Informasi", "FTETI"));
     }
     
     public void insertJurusan(String nama, String fakultas){

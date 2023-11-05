@@ -1,12 +1,13 @@
 package View;
 
 import Model.ModelPembayaranHer;
+import View.Menu.MainClass;
 import View.Menu.MainMenu;
 
 import java.util.Scanner;
 
 public class ViewPembayaranHer {
-    static ModelPembayaranHer mPembHer = new ModelPembayaranHer();
+    //static ModelPembayaranHer mPembHer = new ModelPembayaranHer();
     public static void menuPembHer(){
         System.out.println("\n--- Menu Pembayaran Her ---");
         System.out.println("1. Pembayaran Her\n2. Hapus Pembayaran\n3. Tampilkan Semua Pembayaran\n4. Kembali");
@@ -38,18 +39,19 @@ public class ViewPembayaranHer {
                             namaKasir = "Bu Kasir";
                             break;
                     }
-                    System.out.print("Pembayaran Her (Sudah/Belum) : ");
+                    System.out.print("Pembayaran Her (Sudah) : ");
                     iStatusPem = input.nextLine();
-                    mPembHer.insertPembayaran(iNpm, namaKasir, iStatusPem);
+                    
+                    MainClass.mPembHer.insertPembayaran(ViewPendaftaran.mPendaftaran.searchMhs(iNpm), namaKasir, iStatusPem);
                     continue loops;
                 case 2:
                     System.out.println("--- Hapus Pembayaran ---");
                     System.out.print("Masukkan NPM Mahasiswa : ");
                     iNpm = input.nextLine();
-                    mPembHer.deletePembayaran(iNpm);
+                    MainClass.mPembHer.deletePembayaran(iNpm);
                     continue loops;
                 case 3:
-                    mPembHer.viewAllPembayaran();
+                    MainClass.mPembHer.viewAllPembayaran();
                     continue loops;
                 case 4:
                     MainMenu.main(null);

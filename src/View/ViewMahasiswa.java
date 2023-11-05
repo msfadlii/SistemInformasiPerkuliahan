@@ -3,6 +3,7 @@ package View;
 import Model.ModelMahasiswa;
 import Node.NodeJurusan;
 import Node.NodeWaliMhs;
+import Utility.generateNpm;
 import View.Menu.MainClass;
 import View.Menu.MainMenu;
 
@@ -28,8 +29,9 @@ public class ViewMahasiswa {
             switch(pilih_menu){
                 case 1:
                     System.out.println("--- Tambah Mahasiswa ---");
-                    System.out.print("Masukkan NPM Mahasiswa : ");
-                    iNpm = input.nextLine();
+//                    System.out.print("Masukkan NPM Mahasiswa : ");
+//                    iNpm = input.nextLine();
+                    
                     System.out.print("Masukkan Nama Mahasiswa  : ");
                     iNama = input.nextLine();
                     System.out.print("Masukkan Jurusan         : ");
@@ -44,7 +46,7 @@ public class ViewMahasiswa {
 //                    vWaliMhs.inputWaliMhs(iNpm);
                     NodeJurusan nJur = null;
                     nJur = MainClass.mJurusan.searchJurusan(iJurusan);
-//                    MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp);
+                    iNpm = generateNpm.buatNpm(MainClass.mJurusan.searchJurusan(iJurusan).getKode_jurusan());
                     MainClass.mMhs.nMhs.setWaliMhs(MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp));
                     MainClass.mMhs.insertMahasiswa(iNpm, iNama, nJur, iTelp, MainClass.mWaliMhs.insertWaliMhs(wNama, wTelp));
                     continue loops;

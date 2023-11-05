@@ -8,10 +8,10 @@ import View.ViewPendaftaran;
 import auth.MenuLogin;
 import java.util.Scanner;
 
-public class UserMahasiswaMenu {
+public class UserMahasiswaMenu {    
     public static void menu(){
         System.out.println("--- Selamat Datang di Kampus ITATS ---");
-        System.out.println("1. Lihat Data Mahasiswa\n2. Lihat Data Wali\n3. Lihat Data Dosen Wali\n4. Logout");
+        System.out.println("1. Daftar Mahasiswa\n2. Lihat Data Mahasiswa\n3. Lihat Data Wali\n4. Lihat Data Dosen Wali\n5. Logout");
     }
     
     public static void main(String args) {
@@ -24,17 +24,21 @@ public class UserMahasiswaMenu {
             input.nextLine();
             switch(pilih_menu){
                 case 1:
-                    MainClass.mMhs.searchMahasiswa(args);
+                    ViewPendaftaran.main(args);
                     continue loops;
                 case 2:
-                    MainClass.mWaliMhs.getWali(args);
+                    MainClass.mMhs.searchMahasiswa(MainClass.mMhs.searchUsername(args));
                     continue loops;
                 case 3:
-//                    MainClass.mMhs.viewDosWalForMhs(args);
+                    MainClass.mWaliMhs.getWali(MainClass.mMhs.searchUsername(args));
                     continue loops;
                 case 4:
-                    MenuLogin.main(null);
+                    String output = MainClass.mMhs.viewDosWalForMhs(MainClass.mMhs.searchUsername(args));
+                    System.out.println(""+output);
                     continue loops;
+                case 5:
+                    MenuLogin.menu();
+                    break;
                 default:
                     System.out.println("Input tidak valid (Input 1-4) !");
                     break;
